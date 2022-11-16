@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container pb-5 form-cont">
+    <form action="" method="post" class="w-50 add-card-form">
+        <div class="form-floating mb-3">
+            <span class="param-des">Topic Name: </span>
+            <textarea
+                type="text"
+                class="form-control h-100 card"
+                name="name"
+                id="formId1"
+                placeholder=""
+                required
+            ></textarea>
+        </div>
+        <div class="form-floating mb-3">
+            <span class="param-des">Definition: </span>
+            <textarea
+                type="text"
+                class="form-control h-100 card"
+                name="description"
+                id="formId1"
+                placeholder=""
+            ></textarea>
+        </div>
+        <div class="form-floating mb-3">
+            <span class="param-des">Law 1: </span>
+            <textarea
+                type="text"
+                class="form-control h-100 card"
+                name="Law1"
+                id="formId1"
+                placeholder=""
+                required
+            ></textarea>
+        </div>
+        <div class="form-floating mb-3">
+            <span class="param-des">Law 2: </span>
+            <textarea
+                type="text"
+                class="form-control h-100 card"
+                name="Law2"
+                id="formId1"
+                placeholder=""
+                required
+            ></textarea>
+        </div>
+        <div class="form-floating mb-3">
+            <span class="param-des">Law 3: </span>
+            <textarea
+                type="text"
+                class="form-control h-100 card"
+                name="Law3"
+                id="formId1"
+                placeholder=""
+                required
+            ></textarea>
+        </div>
+        <div class="form-floating mb-3">
+            <span class="param-des">Formula 1: </span>
+            <textarea
+                type="text"
+                class="form-control h-100 card"
+                name="formula1"
+                id="formId1"
+                placeholder=""
+                required
+            ></textarea>
+        </div>
+        <div class="form-floating mb-3">
+            <span class="param-des">Formula 2: </span>
+            <textarea
+                type="text"
+                class="form-control h-100 card"
+                name="formula2"
+                id="formId1"
+                placeholder=""
+                required
+            ></textarea>
+        </div>
+        <div class="form-floating mb-3">
+            <span class="param-des">Formula 3: </span>
+            <textarea
+                type="text"
+                class="form-control h-100 card"
+                name="formula3"
+                id="formId1"
+                placeholder=""
+                required
+            ></textarea>
+        </div>
+        <div class="w-25 button-container">
+            <button type="submit" class="btn btn-lg btn-outline-info">Create</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

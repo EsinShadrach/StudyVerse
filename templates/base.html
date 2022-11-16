@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>StudyVerse</title>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <link rel="shortcut icon" href="{% static 'logo.svg' %}" type="image/x-icon">
+		<script defer src="{% static 'js/bootstrap.bundle.js' %}"></script>
+        <script defer src="{% static 'js/app.js' %}"></script>
+	</head>
+	<body class="">
+        <header>
+			<nav class="navbar navbar-expand-sm navbar-light">
+				<div class="container-md nav-content">
+                    <div class="day-night">
+                        <a class="navbar-brand" id="navbrand" href="{% url 'home' %}">StudyVerse</a>
+                        <div class="toggled-night">
+                            <svg style="height:24px;width:24px" class="day visually-hidden" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69Z" fill="Currentcolor"/>
+                            </svg>
+                            <!-- ============ -->
+                            <svg style="height:24px;width:24px" class="night" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <g transform="matrix(.8665 0 0 .79621 -5.2648 -1.5232)">
+                                    <path d="m16 22c1.05 0 2.05-0.16 3-0.46-4.06-1.27-7-5.04-7-9.54s2.94-8.27 7-9.54c-0.95-0.3-1.95-0.46-3-0.46a10 10 0 0 0-10 10 10 10 0 0 0 10 10z" fill="Currentcolor" stroke-width=".99999"/>
+                                </g>
+                            </svg>                               
+                        </div>
+                    </div>
+                        <button
+                            class="navbar-toggler d-lg-none"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapsibleNavId"
+                            aria-controls="collapsibleNavId"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                        >
+                        <svg width="30px" height="30px" version="1.1" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="Currentcolor">
+                             <rect x=".79553" y="7.346" width="93.95" height="16.144" ry="8.0722" stroke-width="1.0032"/>
+                             <path d="m118.47 15.484a7.8293 7.4478 0 0 1-5.9748 7.2358 7.8293 7.4478 0 0 1-8.8052-3.808 7.8293 7.4478 0 0 1 1.8036-9.0398 7.8293 7.4478 0 0 1 9.6596-0.47435l-4.5124 6.0863z"/>
+                             <rect x="1.2754" y="35.23" width="93.95" height="16.144" ry="8.0722" stroke-width="1.0032"/>
+                             <path d="m118.94 43.369a7.8293 7.4478 0 0 1-4.893 6.9042 7.8293 7.4478 0 0 1-8.5632-1.7256 7.8293 7.4478 0 0 1-1.5299-8.1984 7.8293 7.4478 0 0 1 7.4156-4.4239l-0.25876 7.4437z"/>
+                             <rect x=".66051" y="62.742" width="93.95" height="16.144" ry="7.5207" stroke-width="1.0032"/>
+                             <path d="m118.33 70.881a7.8293 7.4478 0 0 1-5.1213 6.9881 7.8293 7.4478 0 0 1-8.664-2.154 7.8293 7.4478 0 0 1-0.87214-8.4781l6.8281 3.644z"/>
+                             <rect x=".97416" y="88.329" width="93.95" height="16.144" ry="6.8373" stroke-width="1.0032"/>
+                             <path d="m118.64 96.468a7.8293 7.4478 0 0 1-7.7454 7.4473 7.8293 7.4478 0 0 1-7.9114-7.2876l7.8275-0.15969z"/>
+                            </g>
+                           </svg>
+                           
+                        </button>
+					<div class="collapse navbar-collapse" id="collapsibleNavId">
+						<form class="d-flex my-2 my-lg-0 nav-form" method="get", action="{% url 'home' %}">
+							<input type="text" placeholder="Search" name="search" id="burr" />
+							<div>
+								<button
+									class="btn py-2 my-2 my-sm-0"
+									id="cyan"
+									type="submit"
+								>
+									Search
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</nav>
+		</header>
+        <div class="main-container container-md">
+            {% block content %}
+            
+            {% endblock content %}
+        </div>
+        <script>
+            {
+                const day = document.querySelector(".day")
+                const night = document.querySelector(".night")
+                const body = document.querySelector('body')
+                night.addEventListener("click", ()=>{
+                    day.classList.remove('visually-hidden')
+                    night.classList.add('visually-hidden')
+                    body.classList.add("light")
+                })
+                day.addEventListener("click", ()=>{
+                    night.classList.remove('visually-hidden')
+                    day.classList.add('visually-hidden')
+                    body.classList.remove("light")
+                })
+            }
+        </script>
+    </body>
+</html>
